@@ -1,7 +1,6 @@
 package com.example.appsnct
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -39,9 +38,7 @@ class FrmContato : AppCompatActivity() {
 
             if(ListaPessoas.add(novaPessoa)){
                 Toast.makeText(this, "Dados de ${novaPessoa.nome} salvos com sucesso!", Toast.LENGTH_SHORT).show()
-                ListaPessoas.forEach{
-                    Log.d(it.nome,"elemento da lista")
-                }
+                finish()
             }
 
 

@@ -16,9 +16,9 @@ class PessoaAdapter (var lista:ArrayList<Pessoa>):RecyclerView.Adapter<PessoaAda
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val objeto = lista[position]
-        holder?.txtNome.text = objeto.nome.toString()
-        holder?.txtEmail.text = objeto.email.toString()
         holder?.txtTelefone.text = objeto.telefone.toString()
+        holder?.txtEmail.text = objeto.email.toString()
+        holder?.txtNome.text = objeto.nome.toString()
     }
 
     override fun getItemCount(): Int {
@@ -27,7 +27,7 @@ class PessoaAdapter (var lista:ArrayList<Pessoa>):RecyclerView.Adapter<PessoaAda
     class ViewHolder (itemView:View):RecyclerView.ViewHolder(itemView) {
         val txtNome = itemView.findViewById<TextView>(R.id.txtNomePessoa)
         val txtEmail = itemView.findViewById<TextView>(R.id.txtEmailPessoa)
-        val txtTelefone = itemView.findViewById<TextView>(R.id.txtNomePessoa)
+        val txtTelefone = itemView.findViewById<TextView>(R.id.txtTelefonePessoa)
 
     }
 
