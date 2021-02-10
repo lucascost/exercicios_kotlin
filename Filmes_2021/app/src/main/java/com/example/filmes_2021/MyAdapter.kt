@@ -1,6 +1,7 @@
 package com.example.filmes_2021
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +26,15 @@ class MyAdapter(val arrayList: ArrayList<Model>, val context: Context): Recycler
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItens(arrayList[position])
-    }
+        holder.itemView.setOnClickListener(){
+            currentItem=position
+            val intent = Intent(context, Detalhes::class.java).apply {
+                putExtra(EXTRA_TITLE, arrayList[position].title)
+                putExtra(EXTRA_DESCRIPTION, arrayList[position].desc)
+                //putExtra(EXTRA_IMAGE, arrayList[position].image)
+            }
+            this.context.startActivity(intent)
+    }}
 
     override fun getItemCount(): Int {
         return arrayList.size

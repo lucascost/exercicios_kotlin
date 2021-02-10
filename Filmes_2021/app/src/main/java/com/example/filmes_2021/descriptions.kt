@@ -32,3 +32,4 @@ val desc_duna="" +
         "No futuro distante da humanidade, o duque Leto Atreides aceita a administração do perigoso planeta deserto Arrakis, a única" +
         " fonte da substância mais valiosa do universo, \"Melange\", uma droga que prolonga a vida humana e fornece níveis acelerados " +
         "de pensamento."
+
