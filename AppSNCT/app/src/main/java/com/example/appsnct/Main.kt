@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
 
 class Main : AppCompatActivity() {
@@ -17,6 +16,8 @@ class Main : AppCompatActivity() {
         btn.setOnClickListener(){
             val tela:Intent
             tela = Intent(this, FrmContato::class.java)
+            tela.putExtra("ACAO", "cadastrar")
+            tela.putExtra("POSICAO", -1)
             startActivity(tela)
         }
     }
@@ -25,6 +26,6 @@ class Main : AppCompatActivity() {
         super.onResume()
         val rcvLista:RecyclerView = findViewById(R.id.rcvLista)
         rcvLista.adapter = PessoaAdapter(ListaPessoas)
-        rcvLista.layoutManager = LinearLayoutManager(this, OrientationHelper.VERTICAL, false)
+        rcvLista.layoutManager = LinearLayoutManager(this)
     }
 }

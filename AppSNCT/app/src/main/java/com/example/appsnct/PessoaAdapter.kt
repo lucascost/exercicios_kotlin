@@ -1,8 +1,10 @@
 package com.example.appsnct
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -19,6 +21,18 @@ class PessoaAdapter (var lista:ArrayList<Pessoa>):RecyclerView.Adapter<PessoaAda
         holder?.txtTelefone.text = objeto.telefone.toString()
         holder?.txtEmail.text = objeto.email.toString()
         holder?.txtNome.text = objeto.nome.toString()
+        holder?.btnExcluir.setOnClickListener(){
+            val intencao = Intent(holder?.itemView.context, FrmContato::class.java)
+            intencao.putExtra("ACAO", "excluir")
+            intencao.putExtra("POSICAO", position)
+            holder.itemView.context.startActivity(intencao)
+        }
+        holder?.btnEditar.setOnClickListener(){
+            val intencao = Intent(holder?.itemView.context, FrmContato::class.java)
+            intencao.putExtra("ACAO", "editar")
+            intencao.putExtra("POSICAO", position)
+            holder.itemView.context.startActivity(intencao)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -28,6 +42,8 @@ class PessoaAdapter (var lista:ArrayList<Pessoa>):RecyclerView.Adapter<PessoaAda
         val txtNome = itemView.findViewById<TextView>(R.id.txtNomePessoa)
         val txtEmail = itemView.findViewById<TextView>(R.id.txtEmailPessoa)
         val txtTelefone = itemView.findViewById<TextView>(R.id.txtTelefonePessoa)
+        val btnEditar = itemView.findViewById<ImageView>(R.id.btnEditarContato)
+        val btnExcluir = itemView.findViewById<ImageView>(R.id.btnExcluirContato)
 
     }
 
