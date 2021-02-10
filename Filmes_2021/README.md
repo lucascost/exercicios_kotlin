@@ -1,3 +1,3 @@
 <h2>#recycler-view </h2>
 <br>
-![Alt Text](preview.gif)
+![](https://github.com/lucascost/exercicios_kotlin/blob/master/Filmes_2021/preview.gif)
