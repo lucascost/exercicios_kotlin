@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class PessoaAdapter (var lista:ArrayList<Pessoa>):RecyclerView.Adapter<PessoaAdapter.ViewHolder>(){
+class PessoaAdapter (var lista:List<Pessoa>):RecyclerView.Adapter<PessoaAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v:View
@@ -24,13 +24,13 @@ class PessoaAdapter (var lista:ArrayList<Pessoa>):RecyclerView.Adapter<PessoaAda
         holder?.btnExcluir.setOnClickListener(){
             val intencao = Intent(holder?.itemView.context, FrmContato::class.java)
             intencao.putExtra("ACAO", "excluir")
-            intencao.putExtra("POSICAO", position)
+            intencao.putExtra("POSICAO", objeto.idpessoa)
             holder.itemView.context.startActivity(intencao)
         }
         holder?.btnEditar.setOnClickListener(){
             val intencao = Intent(holder?.itemView.context, FrmContato::class.java)
             intencao.putExtra("ACAO", "editar")
-            intencao.putExtra("POSICAO", position)
+            intencao.putExtra("POSICAO", objeto.idpessoa)
             holder.itemView.context.startActivity(intencao)
         }
     }
