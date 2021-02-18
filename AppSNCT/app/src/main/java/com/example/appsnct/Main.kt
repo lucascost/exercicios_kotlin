@@ -2,26 +2,29 @@ package com.example.appsnct
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
+import com.example.appsnct.databinding.ActivityMainBinding
+
 
 class Main : AppCompatActivity() {
+
+
 
     lateinit var lista:List<Pessoa>
     lateinit var banco: AppBanco
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val btn:Button = findViewById(R.id.btnChamaTela)
+        val binding:ActivityMainBinding=ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         banco = Room.databaseBuilder(this, AppBanco::class.java,"pessoas")
             .allowMainThreadQueries().build()
 
-        btn.setOnClickListener(){
+        binding.btnChamaTela.setOnClickListener(){
             val tela:Intent
             tela = Intent(this, FrmContato::class.java)
             tela.putExtra("ACAO", "cadastrar")
@@ -33,7 +36,7 @@ class Main : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         lista = banco.pessoaDao().listarPessoas()
-        val rcvLista:RecyclerView = findViewById(R.id.rcvLista)
+        val rcvLista=findViewById<RecyclerView>(R.id.rcvLista)
         rcvLista.adapter = PessoaAdapter(lista)
         rcvLista.layoutManager = LinearLayoutManager(this)
     }

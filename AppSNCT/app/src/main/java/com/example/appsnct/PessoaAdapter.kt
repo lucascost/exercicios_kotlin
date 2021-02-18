@@ -12,7 +12,7 @@ class PessoaAdapter (var lista:List<Pessoa>):RecyclerView.Adapter<PessoaAdapter.
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v:View
-        v = LayoutInflater.from(parent?.context).inflate(R.layout.item_contato,parent,false)
+        v = LayoutInflater.from(parent.context).inflate(R.layout.item_contato,parent,false)
         return ViewHolder(v)
     }
 
