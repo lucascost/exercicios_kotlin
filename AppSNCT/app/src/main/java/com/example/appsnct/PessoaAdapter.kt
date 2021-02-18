@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.text.NumberFormat
 
 class PessoaAdapter (var lista:List<Pessoa>):RecyclerView.Adapter<PessoaAdapter.ViewHolder>(){
 
@@ -21,6 +22,7 @@ class PessoaAdapter (var lista:List<Pessoa>):RecyclerView.Adapter<PessoaAdapter.
         holder?.txtTelefone.text = objeto.telefone.toString()
         holder?.txtEmail.text = objeto.email.toString()
         holder?.txtNome.text = objeto.nome.toString()
+        holder?.txtSalario.text = NumberFormat.getCurrencyInstance().format(objeto.salario.toString().toDouble())
         holder?.btnExcluir.setOnClickListener(){
             val intencao = Intent(holder?.itemView.context, FrmContato::class.java)
             intencao.putExtra("ACAO", "excluir")
@@ -44,6 +46,7 @@ class PessoaAdapter (var lista:List<Pessoa>):RecyclerView.Adapter<PessoaAdapter.
         val txtTelefone = itemView.findViewById<TextView>(R.id.txtTelefonePessoa)
         val btnEditar = itemView.findViewById<ImageView>(R.id.btnEditarContato)
         val btnExcluir = itemView.findViewById<ImageView>(R.id.btnExcluirContato)
+        val txtSalario = itemView.findViewById<TextView>(R.id.txtSalarioPessoa)
 
     }
 
