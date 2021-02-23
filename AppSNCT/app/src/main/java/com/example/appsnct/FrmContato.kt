@@ -110,22 +110,6 @@ class FrmContato : AppCompatActivity() {
         if(campo.text.isNullOrEmpty()) { campo.error="Informação necessária!"}
         return !campo.text.isNullOrEmpty()
 
-
-
-
-
-        /*
-        if(edtNome.text.isNullOrEmpty()) { edtNome.error="Digite o nome!"}
-        else { nome = edtNome.text.toString()}
-
-        if(edtEmail.text.isNullOrEmpty()) {  edtEmail.error="Digite o email!"}
-        else {  email = edtEmail.text.toString()}
-
-        if(edtTelefone.text.isNullOrEmpty()) {  edtTelefone.error="Digite o telefone!"}
-        else {  telefone = edtTelefone.text.toString()}
-
-        if(edtSalario.text.isNullOrEmpty()) {  edtSalario.error="Digite o salário!"}
-        else {  salario = edtSalario.text.toString().toDouble()}   */
     }
 
 }
