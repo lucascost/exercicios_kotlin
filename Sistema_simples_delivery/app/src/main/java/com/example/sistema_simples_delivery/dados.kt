@@ -1,6 +1,6 @@
 package com.example.sistema_simples_delivery
 
-class produto(val preview:Int, val nome:String,val descricao:String, val preco:Double, ){
+class produto(val preview:Int, val nome:String,val descricao:String, val preco:Double ){
     val quantidade:Int=0
     val total:Double=0.0
 }
