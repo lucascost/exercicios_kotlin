@@ -10,7 +10,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        produtos.add(brigadeiro)
+        produtos.add(frango)
+        produtos.add(calabresa)
+        produtos.add(mussarela)
+        produtos.add(basca)
+        produtos.add(portuguesa)
+        produtos.add(margherita)
+
         binding.recycler.adapter = MainAdapter(produtos)
         binding.recycler.layoutManager = LinearLayoutManager(this)
     }
