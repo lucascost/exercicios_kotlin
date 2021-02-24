@@ -36,27 +36,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
+
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginTop="16dp"
         android:text="Tamanho:"
         android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/selecP"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descricao" />
-
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:text="Quantidade:"
         android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/selecP"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/precoM" />
 
     <Button
@@ -68,36 +68,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_quantidade" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_mais"
         android:layout_width="42dp"
         android:layout_height="43dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:text="+"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView9"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="@+id/textView9"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_quantidade"
+        app:layout_constraintStart_toEndOf="@+id/txt_quantidade"
+        app:layout_constraintTop_toTopOf="@+id/txt_quantidade"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_menos"
         android:layout_width="42dp"
         android:layout_height="43dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="-"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView9"
-        app:layout_constraintEnd_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="@+id/textView9"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_quantidade"
+        app:layout_constraintEnd_toStartOf="@+id/txt_quantidade"
+        app:layout_constraintTop_toTopOf="@+id/txt_quantidade"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/txt_quantidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -110,50 +110,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-    <ToggleButton
-        android:id="@+id/selecP"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:background="@android:color/holo_orange_light"
-        android:text="ToggleButton"
-        android:textColorLink="@color/dark_green"
-        android:textOff="P"
-        android:textOn="P"
-        app:layout_constraintEnd_toStartOf="@+id/selecG"
-        app:layout_constraintTop_toTopOf="@+id/selecG" />
-
-
-    <ToggleButton
-        android:id="@+id/selecM"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:background="@android:color/holo_orange_light"
-        android:text="ToggleButton"
-        android:textColorHighlight="@color/dark_green"
-        android:textColorLink="@color/dark_green"
-        android:textOff="M"
-        android:textOn="M"
-        app:layout_constraintStart_toEndOf="@+id/selecG"
-        app:layout_constraintTop_toTopOf="@+id/selecG" />
-
-    <ToggleButton
-        android:id="@+id/selecG"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/holo_orange_light"
-        android:text="ToggleButton"
-        android:textColorLink="@color/teal_200"
-        android:textOff="G"
-        android:textOn="G"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/nome"
@@ -178,7 +134,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/selecP"
         app:layout_constraintStart_toStartOf="@+id/selecP"
-        app:layout_constraintTop_toBottomOf="@+id/selecP" />
+        app:layout_constraintTop_toTopOf="@+id/precoM" />
 
     <TextView
         android:id="@+id/precoM"
@@ -187,9 +143,9 @@
         android:text="R$ 0,00"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/precoG"
-        app:layout_constraintStart_toEndOf="@+id/precoP"
-        app:layout_constraintTop_toBottomOf="@+id/selecG" />
+        app:layout_constraintEnd_toEndOf="@+id/selecM"
+        app:layout_constraintStart_toStartOf="@+id/selecM"
+        app:layout_constraintTop_toBottomOf="@+id/selecM" />
 
     <TextView
         android:id="@+id/precoG"
@@ -198,9 +154,39 @@
         android:text="R$ 0,00"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/selecM"
-        app:layout_constraintStart_toStartOf="@+id/selecM"
-        app:layout_constraintTop_toBottomOf="@+id/selecM" />
+        app:layout_constraintEnd_toEndOf="@+id/selecG"
+        app:layout_constraintStart_toStartOf="@+id/selecG"
+        app:layout_constraintTop_toTopOf="@+id/precoM" />
+
+    <Button
+        android:id="@+id/selecP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:text="P"
+        app:layout_constraintEnd_toStartOf="@+id/selecM"
+        app:layout_constraintTop_toTopOf="@+id/selecM" />
+
+    <Button
+        android:id="@+id/selecM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="M"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <Button
+        android:id="@+id/selecG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:text="G"
+        app:layout_constraintStart_toEndOf="@+id/selecM"
+        app:layout_constraintTop_toTopOf="@+id/selecM" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

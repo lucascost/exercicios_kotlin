@@ -37,9 +37,9 @@ class MainAdapter (var lista: ArrayList<produto>): RecyclerView.Adapter<MainAdap
             intent.putExtra("item_preview", produto.preview)
             intent.putExtra("item_nome",produto.nome)
             intent.putExtra("item_descricao",produto.descricao)
-            intent.putExtra("item_preco",produto.preco.toString())
-            intent.putExtra("item_preco_medio",produto.precoMedio.toString())
-            intent.putExtra("item_preco_grande",produto.precoGrande.toString())
+            intent.putExtra("item_preco",produto.preco)
+            intent.putExtra("item_preco_medio",produto.precoMedio)
+            intent.putExtra("item_preco_grande",produto.precoGrande)
             holder.itemView.context.startActivity(intent)
         }
     }
