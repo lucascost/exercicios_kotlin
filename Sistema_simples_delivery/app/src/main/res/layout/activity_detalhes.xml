@@ -30,8 +30,10 @@
         android:id="@+id/descricao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@color/dark_green"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut"
         android:textColor="@color/white"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
@@ -41,11 +43,11 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
         android:layout_marginTop="16dp"
         android:text="Tamanho:"
         android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descricao" />
 
@@ -56,19 +58,20 @@
         android:layout_marginTop="20dp"
         android:text="Quantidade:"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/precoM" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btConfirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="12dp"
         android:text="Confirmar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_quantidade" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_custo" />
 
     <Button
         android:id="@+id/btn_mais"
@@ -106,7 +109,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -187,6 +190,18 @@
         android:text="G"
         app:layout_constraintStart_toEndOf="@+id/selecM"
         app:layout_constraintTop_toTopOf="@+id/selecM" />
+
+    <TextView
+        android:id="@+id/txt_custo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="R$ 0.00"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_quantidade" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
