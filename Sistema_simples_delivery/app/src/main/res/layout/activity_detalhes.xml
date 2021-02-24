@@ -53,10 +53,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
+        android:layout_marginTop="12dp"
         android:text="Quantidade:"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/selecP"
-        tools:layout_editor_absoluteY="452dp" />
+        app:layout_constraintTop_toBottomOf="@+id/precoM" />
 
     <Button
         android:id="@+id/button"
@@ -99,7 +100,7 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:text="1"
         android:textColor="@color/white"
         android:textSize="24sp"
