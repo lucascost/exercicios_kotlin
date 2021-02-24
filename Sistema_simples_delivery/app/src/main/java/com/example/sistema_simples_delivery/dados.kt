@@ -3,8 +3,6 @@ package com.example.sistema_simples_delivery
 class produto(val preview:Int, val nome:String,val descricao:String, val preco:Double ){
     val precoM:Int =0
     val precoG:Int =0
-    val quantidade:Int=0
-    val total:Double=0.0
 }
 
 val produtos = ArrayList<produto>()
