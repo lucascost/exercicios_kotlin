@@ -34,6 +34,10 @@ class MainAdapter (var lista: ArrayList<produto>): RecyclerView.Adapter<MainAdap
 
         holder.layout.setOnClickListener(){
             val intent = Intent(holder.itemView.context,Detalhes::class.java)
+            intent.putExtra("item_preview", produto.preview)
+            intent.putExtra("item_nome",produto.nome)
+            intent.putExtra("item_descricao",produto.descricao)
+            intent.putExtra("item_preco",produto.preco)
             holder.itemView.context.startActivity(intent)
         }
     }

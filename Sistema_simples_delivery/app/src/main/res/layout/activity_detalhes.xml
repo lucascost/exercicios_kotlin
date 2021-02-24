@@ -4,16 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/red"
     android:padding="10dp"
-    tools:context=".Detalhes">
+    tools:context=".Detalhes"
+    >
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_launcher_foreground"
-        tools:layout_editor_absoluteX="152dp"
-        tools:layout_editor_absoluteY="66dp" />
+        android:id="@+id/img"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toTopOf="@+id/nome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -23,12 +27,11 @@
         app:layout_constraintGuide_percent="0.31" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/descricao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:lines="1"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
@@ -39,8 +42,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Tamanho:"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/selecP"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/descricao" />
 
     <Button
         android:id="@+id/button"
@@ -85,6 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="1"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,6 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Quantidade:"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/selecP"
         app:layout_constraintTop_toBottomOf="@+id/selecG" />
 
@@ -104,7 +110,11 @@
         android:id="@+id/selecP"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:background="@android:color/holo_orange_light"
         android:text="ToggleButton"
+        android:textColorLink="@color/dark_green"
         android:textOff="P"
         android:textOn="P"
         app:layout_constraintEnd_toStartOf="@+id/selecG"
@@ -115,7 +125,12 @@
         android:id="@+id/selecM"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:background="@android:color/holo_orange_light"
         android:text="ToggleButton"
+        android:textColorHighlight="@color/dark_green"
+        android:textColorLink="@color/dark_green"
         android:textOff="M"
         android:textOn="M"
         app:layout_constraintStart_toEndOf="@+id/selecG"
@@ -126,13 +141,29 @@
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:background="@android:color/holo_orange_light"
         android:text="ToggleButton"
+        android:textColorLink="@color/teal_200"
         android:textOff="G"
         android:textOn="G"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
