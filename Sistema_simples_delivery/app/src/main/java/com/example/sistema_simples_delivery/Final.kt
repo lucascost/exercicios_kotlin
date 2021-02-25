@@ -28,7 +28,7 @@ class Final : AppCompatActivity() {
         val endereco = e.edtEnderecoCliente.text
 
         e.btnFinalizar.setOnClickListener(){
-            val url = "https://api.whatsapp.com/send?phone=5571988245641&text=Pedido de "+nomeCliente+":%0A"+final_quantidade+"x "+e.tvNome.text+"%0A"+endereco
+            val url = "https://api.whatsapp.com/send?phone=5571983717366&text=Pedido de "+nomeCliente+":%0A"+final_quantidade+"x "+e.tvNome.text+"%0A"+endereco
             val i = Intent(Intent.ACTION_VIEW)
             i.data = Uri.parse(url)
             startActivity(i)
