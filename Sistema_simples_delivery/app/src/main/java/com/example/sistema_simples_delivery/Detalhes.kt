@@ -19,6 +19,7 @@ class Detalhes : AppCompatActivity() {
         val preco_g = intent.getDoubleExtra("item_preco_grande",0.0)
         var quantidade:Int = 1
         var preco:Double=0.0
+        var tam:String=""
 
 
 
@@ -31,16 +32,16 @@ class Detalhes : AppCompatActivity() {
         b.precoG.text= "R$"+preco_g.toString()+"0"
 
         //Ações
-        b.selecP.setOnClickListener(){ configButtons(b.selecP);preco = preco_p;changeCost(preco,quantidade,b.txtCusto) }
-        b.selecM.setOnClickListener(){ configButtons(b.selecM);preco = preco_m;changeCost(preco,quantidade,b.txtCusto) }
-        b.selecG.setOnClickListener(){ configButtons(b.selecG);preco = preco_g;changeCost(preco,quantidade,b.txtCusto) }
+        b.selecP.setOnClickListener(){ configButtons(b.selecP); preco = preco_p; changeCost(preco,quantidade,b.txtCusto); tam="P" }
+        b.selecM.setOnClickListener(){ configButtons(b.selecM); preco = preco_m; changeCost(preco,quantidade,b.txtCusto); tam="M" }
+        b.selecG.setOnClickListener(){ configButtons(b.selecG); preco = preco_g; changeCost(preco,quantidade,b.txtCusto); tam="G" }
 
         b.btnMais.setOnClickListener(){quantidade++; b.txtQuantidade.text = quantidade.toString();changeCost(preco,quantidade,b.txtCusto)}
         b.btnMenos.setOnClickListener(){quantidade--; b.txtQuantidade.text = quantidade.toString();changeCost(preco,quantidade,b.txtCusto)}
 
         b.btConfirmar.setOnClickListener(){
             val intent = Intent(this,Final::class.java)
-            intent.putExtra("final_nome",i_nome)
+            intent.putExtra("final_nome",i_nome+" "+tam)
             intent.putExtra("final_quantidade",quantidade)
             intent.putExtra("final_preco",preco)
             startActivity(intent)
