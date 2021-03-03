@@ -1,9 +1,10 @@
 package com.example.crudphp
 
 import android.os.Bundle
-import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.crudphp.databinding.ActivityMainBinding
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
@@ -20,14 +21,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val b = ActivityMainBinding.inflate(layoutInflater)
         setContentView(b.root)
+        val recycler = findViewById<RecyclerView>(R.id.recycler)
 
-        listarContatos()
 
         val url = HOST+"/create.php"
 
         lista= ArrayList()
-        contatosAdapter = ContatosAdapter(this,lista)
-        this.findViewById<ListView>(R.id.listViewContatos).adapter = contatosAdapter
+        listarContatos()
+        contatosAdapter = ContatosAdapter(lista)
+        recycler.adapter = contatosAdapter
+        recycler.layoutManager = LinearLayoutManager(this)
+        
 
         b.btnSalvar.setOnClickListener() {
             var id: String = b.edtId.text.toString()
@@ -55,14 +59,15 @@ class MainActivity : AppCompatActivity() {
                         }
             } //update
 
-
+            listarContatos()
         }
     }
     fun listarContatos(){
+         lista.clear()
         val url:String = HOST+"/read.php"
-        Ion.with(baseContext).load(url).asJsonArray().setCallback { e, result:JsonArray? ->
-            for(i:Int in 0 .. result?.size()!!-1){
-                var obj:JsonObject = result?.get(i).asJsonObject!!
+        Ion.with(baseContext).load(url).asJsonArray().setCallback { e, result:JsonArray ->
+            for(i:Int in 0 .. result.size()-1){
+                var obj:JsonObject = result.get(i).asJsonObject!!
                 var c:Contato = Contato()
                 c.id = obj.get("id").asInt
                 c.nome = obj.get("nome").asString
