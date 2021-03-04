@@ -18,11 +18,13 @@
         <EditText
             android:id="@+id/edtTelefone"
             android:hint="TELEFONE"
+            android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <EditText
             android:id="@+id/edtEmail"
             android:hint="EMAIL"
+            android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <LinearLayout
@@ -35,11 +37,15 @@
                 android:enabled="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
             <Button
-                android:id="@+id/btnNovo"
-                android:text="NOVO"
+                android:id="@+id/btnAdd"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Adicionar">
+
+            </Button>
+
             <Button
                 android:id="@+id/btnSalvar"
                 android:text="SALVAR"
