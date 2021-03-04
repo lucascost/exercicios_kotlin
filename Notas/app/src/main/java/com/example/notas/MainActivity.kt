@@ -26,8 +26,8 @@ class MainActivity : AppCompatActivity() {
         val btnDel = findViewById<Button>(R.id.button2)
             btnDel.isVisible=false
 
-
-        rcv.adapter = NoteAdapter(notas)
+        var nAdapter=NoteAdapter(notas)
+        rcv.adapter = nAdapter
         rcv.layoutManager = LinearLayoutManager(this)
 
 
@@ -45,14 +45,15 @@ class MainActivity : AppCompatActivity() {
 
                     if(acao==1){
                         db.noteDao().inserir(nota_atual)
-                        this.recreate()
+
                     }
                     else
                         db.noteDao().editar(nota_atual)
                 } else {
                     edt.error="campo vazio."
                 }
-            rcv.adapter?.notifyDataSetChanged()
+            notas = db.noteDao().listar()
+            nAdapter.notifyDataSetChanged()
             nota_atual=Nota()
             acao=1
             edt.setText("")
@@ -62,7 +63,8 @@ class MainActivity : AppCompatActivity() {
         btnDel.setOnClickListener(){
             db.noteDao().remover(nota_atual)
             edt.setText("")
-            this.recreate()
+            notas = db.noteDao().listar()
+            nAdapter.notifyDataSetChanged()
         }
 
 
