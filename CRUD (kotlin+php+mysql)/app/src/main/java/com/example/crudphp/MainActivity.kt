@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         contatosAdapter = ContatosAdapter(lista)
         b.recycler.adapter = contatosAdapter
         b.recycler.layoutManager = LinearLayoutManager(this)
-        //create
+
         b.btnAdd.setOnClickListener() {
             if(camposPreenchidos(b.edtNome,b.edtTelefone,b.edtEmail)){
                 var id: String = b.edtId.text.toString()
@@ -63,8 +63,7 @@ class MainActivity : AppCompatActivity() {
             limparCampos(b.edtId,b.edtNome,b.edtTelefone,b.edtEmail)
             atualizarLista()
         }
-        //update
-        //selecionar contato
+
         b.recycler.addOnItemTouchListener(RecyclerItemClickListener(this) { view, position ->
             Toast.makeText(this, "Item "+position+" selecionado", Toast.LENGTH_SHORT).show()
             itemClicado=position
@@ -76,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             b.edtEmail.setText(aux.email)
 
         })
-        //evento botão
+
         b.btnSalvar.setOnClickListener(){
             var aux = Contato()
             aux.id=lista[itemClicado].id
@@ -100,30 +99,49 @@ class MainActivity : AppCompatActivity() {
                     }
             atualizarLista()
             limparCampos(b.edtId,b.edtNome,b.edtTelefone,b.edtEmail)
-            itemClicado=0
+        }
+
+        b.btnExcluir.setOnClickListener(){
+            var aux = Contato()
+            aux.id=lista[itemClicado].id
+            Ion.with(applicationContext)
+                    .load("http://10.0.0.105/delete.php")
+                    .setBodyParameter("id", aux.id.toString())
+                    .asJsonObject()
+                    .setCallback { e, result ->
+
+                        if (result.get("delete").asString.equals("ok")) {
+                            Toast.makeText(this, "Deletado com sucesso", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(this, "Ocorreu um erro", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            atualizarLista()
+            limparCampos(b.edtId,b.edtNome,b.edtTelefone,b.edtEmail)
         }
     }
-    //read
+
     fun atualizarLista(){
         lista.clear()
         val url:String = HOST+"/read.php"
         Ion.with(baseContext).load(url).asJsonArray().setCallback { e, result:JsonArray ->
             for(i:Int in 0 .. result.size()-1){
                 var obj:JsonObject = result.get(i).asJsonObject!!
-                var c:Contato = Contato()
+                var c = Contato()
                 c.id = obj.get("id").asInt
                 c.nome = obj.get("nome").asString
                 c.telefone = obj.get("telefone").asString
                 c.email = obj.get("email").asString
 
                 lista.add(c)
+                contatosAdapter.notifyDataSetChanged()
             }
-            contatosAdapter.notifyDataSetChanged()
+
         }
     }
+
     fun camposPreenchidos(nome:EditText,telefone:EditText,email:EditText): Boolean {
         return !(nome.text.isNullOrEmpty() || telefone.text.isNullOrEmpty()||(email.text.isNullOrEmpty()))
-
     }
     fun limparCampos(id:EditText,nome:EditText,telefone:EditText,email:EditText){
         id.setText("")
